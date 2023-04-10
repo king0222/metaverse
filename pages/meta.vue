@@ -1,10 +1,11 @@
 <template>
-  <div class="home blog sidebar_no animate-nav mini-sidebar">
+  <section class="home">
     <Sidebar></Sidebar>
-    <div class="modal-dialog h-100  sidebar-nav-inner">
+    <section class="main-section">
       <Header></Header>
-    </div>
-  </div>
+      <section>hello world</section>
+    </section>
+  </section>
 </template>
 
 <script lang="ts">
@@ -14,6 +15,3 @@ export default Vue.extend({
   name: 'MetaPage',
 })
 </script>
-
-<style src="@/static/css/meta.css">
-</style>
