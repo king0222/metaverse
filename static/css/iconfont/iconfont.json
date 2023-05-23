@@ -1,0 +1,30 @@
+{
+  "id": "1667280",
+  "name": "cms",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "3837825",
+      "name": "AI",
+      "font_class": "AI",
+      "unicode": "e60a",
+      "unicode_decimal": 58890
+    },
+    {
+      "icon_id": "13252687",
+      "name": "Flatt3d-Lego",
+      "font_class": "Flattd-Lego",
+      "unicode": "e78f",
+      "unicode_decimal": 59279
+    },
+    {
+      "icon_id": "17759418",
+      "name": "工具",
+      "font_class": "gongju",
+      "unicode": "e614",
+      "unicode_decimal": 58900
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 1667280 */
+  /* Color fonts */
+  src: 
+       url('iconfont.woff2?t=1682668113240') format('woff2'),
+       url('iconfont.woff?t=1682668113240') format('woff'),
+       url('iconfont.ttf?t=1682668113240') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-AI:before {
+  content: "\e60a";
+}
+
+.icon-Flattd-Lego:before {
+  content: "\e78f";
+}
+
+.icon-gongju:before {
+  content: "\e614";
+}
+

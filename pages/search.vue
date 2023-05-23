@@ -18,6 +18,7 @@
       </section>
       <section class="lg:w-3/4 lg:float-left">
         <div class="bg-white p-4">
+          <h2>关键字“{{key}}”搜索结果：</h2>
           <ul>
             <li class="block p-2 mb-4 rounded-sm bg-white shadow-lg" v-for="article of articles" :key="article.slug">
               <NuxtLink :to="{ name: '3d-slug', params: { slug: article.slug, cat: article.cat } }">
@@ -57,12 +58,44 @@
 
 <script>
   export default {
-    async asyncData({ $content, params }) {
+    data() {
+        return {
+            key: this.$route.query.key,
+            articles: []
+        }
+    },
+
+    beforeRouteUpdate(to, from ,next) {
+        this.getData(to.query.key)
+        this.key = to.query.key
+        next()
+    },
+
+    created() {
+        this.getData()
+    },
+
+    methods: {
+      async getData(key) {
+        const articles = await this.$content('articles')
+            .only(['title', 'description', 'img', 'slug', 'author', 'cat'])
+            .sortBy('createdAt', 'asc')
+            .search(key || this.$route.query.key)
+            .fetch()
+        console.log('search articles is:', articles)
+        
+        this.articles = articles
+      }
+    },
+
+    async asyncData({ $content, params, route }) {
+      console.log('param is:', params, route)
       const articles = await $content('articles')
         .only(['title', 'description', 'img', 'slug', 'author', 'cat'])
         .sortBy('createdAt', 'asc')
+        .search(route.query.key)
         .fetch()
-
+      console.log('search articles is:', articles)
       return {
         articles
       }

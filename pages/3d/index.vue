@@ -2,25 +2,11 @@
   <div class="bg-slate-100">
     <header-nav headerBg="/imgs/146.webp"></header-nav>
     <section class="overflow-hidden clear-both p-4 lg:max-w-6xl lg:mx-auto">
-      <section class="cat-holder flex w-full bg-white rounded-sm p-4 justify-between mb-4">
-        <a href="/3d" class="block transition duration-150 ease-in-out flex-1 shadow rounded text-center mx-4 pb-2 cursor-pointer hover:bg-info-200">
-          <i class="iconfont icon-Flattd-Lego"></i>
-          <p class=" text-2xl font-bold text-center">3D</p>
-        </a>
-        <a href="/ai" class="block transition duration-150 ease-in-out flex-1 shadow rounded text-center mx-4 pb-2 cursor-pointer hover:bg-info-200">
-          <i class="iconfont icon-AI"></i>
-          <p class=" text-2xl font-bold text-center">AI</p>
-        </a>
-        <a href="/tool" class="block transition duration-150 ease-in-out flex-1 shadow rounded text-center mx-4 pb-2 cursor-pointer hover:bg-info-200">
-          <i class="iconfont icon-gongju"></i>
-          <p class=" text-2xl font-bold text-center">工具集</p>
-        </a>
-      </section>
       <section class="lg:w-3/4 lg:float-left">
         <div class="bg-white p-4">
           <ul>
             <li class="block p-2 mb-4 rounded-sm bg-white shadow-lg" v-for="article of articles" :key="article.slug">
-              <NuxtLink :to="{ name: '3d-slug', params: { slug: article.slug, cat: article.cat } }">
+              <NuxtLink :to="{ name: '3d-slug', params: { slug: article.slug, cat: '3d' } }">
                 <div class="article-bg bg-no-repeat bg-center bg-cover w-full h-40" style="background-image: url('/imgs/146.webp');"></div>
                 <!-- <img :src="article.img" /> -->
                 <div>
@@ -48,9 +34,6 @@
         </div>
       </section>
     </section>
-    <!-- <pre>
-      {{articles}}
-    </pre> -->
     <footer-nav></footer-nav>
   </div>
 </template>
@@ -58,8 +41,8 @@
 <script>
   export default {
     async asyncData({ $content, params }) {
-      const articles = await $content('articles')
-        .only(['title', 'description', 'img', 'slug', 'author', 'cat'])
+      const articles = await $content('articles/3d')
+        .only(['title', 'description', 'img', 'slug', 'author'])
         .sortBy('createdAt', 'asc')
         .fetch()
 
@@ -69,9 +52,3 @@
     }
   }
 </script>
-
-<style scoped>
-.cat-holder .iconfont {
-  font-size: 3em;
-}
-</style>
