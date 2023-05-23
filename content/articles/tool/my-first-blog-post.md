@@ -1,5 +1,5 @@
 ---
-title: 工具类受骗文章
+title: 工具类文章
 description: Learning how to use @nuxt/content to create a blog
 img: /imgs/146.webp
 alt: my first blog post
